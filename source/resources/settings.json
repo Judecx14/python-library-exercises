@@ -1,0 +1,59 @@
+{
+    "options": {
+        "driver":"chrome",
+        "mode": "all",
+        "maximize":"true",
+        "url":"https://ponlestylo.com.mx",
+        "wait": "2.0"
+    },
+    "elements": [
+        {
+            "find": {
+                "id": "btn-go",
+                "name": "",
+                "classname": "",
+                "xpath":""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "name",
+                "classname": "",
+                "xpath":""
+            },
+            "action": {
+                "type": "write",
+                "value": "admin"
+            }
+        },
+        {
+            "find": {
+                "id": "finder-button",
+                "name": "",
+                "classname": "",
+                "xpath":""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/app-root/app-sidenav/mat-drawer-container/mat-drawer-content/div/app-instructor-finder/section/div/picture/div/strong"
+            },
+            "action": {
+                "type": "read",
+                "value": ""
+            }
+        }
+    ]
+}
