@@ -1,45 +1,21 @@
 {
     "options": {
         "driver":"chrome",
-        "mode": "all",
+        "mode": "xpath",
         "maximize":"true",
-        "url":"https://ponlestylo.com.mx",
-        "wait": "2.0"
+        "url":"https://www.worldometers.info",
+        "wait": "5.0"
     },
     "elements": [
         {
             "find": {
-                "id": "btn-go",
-                "name": "",
-                "classname": "",
-                "xpath":""
-            },
-            "action": {
-                "type": "click",
-                "value": ""
-            }
-        },
-        {
-            "find": {
                 "id": "",
-                "name": "name",
-                "classname": "",
-                "xpath":""
-            },
-            "action": {
-                "type": "write",
-                "value": "admin"
-            }
-        },
-        {
-            "find": {
-                "id": "finder-button",
                 "name": "",
                 "classname": "",
-                "xpath":""
+                "xpath": "/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[45]/div[1]/span[1]"
             },
             "action": {
-                "type": "click",
+                "type": "read",
                 "value": ""
             }
         },
@@ -48,7 +24,19 @@
                 "id": "",
                 "name": "",
                 "classname": "",
-                "xpath": "/html/body/app-root/app-sidenav/mat-drawer-container/mat-drawer-content/div/app-instructor-finder/section/div/picture/div/strong"
+                "xpath": "/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[46]/div[1]/span[1]"
+            },
+            "action": {
+                "type": "read",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[47]/div[1]/span[1]"
             },
             "action": {
                 "type": "read",

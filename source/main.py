@@ -1,12 +1,10 @@
-from classes.browser import Browser
+from app.automated_charts import Chart
+
 
 def main():
-    b = Browser()
-    b.open()
-    b.find_elements()
-    data = b.get_data_elements()
-    print(data[0])
-    b.close()
+    chart = Chart()
+    chart.get_data()
+    chart.create_chart()
 
 if __name__ == "__main__":
     main()

@@ -7,41 +7,50 @@ from constants.actions import Actions
 
 
 class Browser:
-    settings = Settings()
+    __settings = Settings()
+    __driver: any 
+    __url: str
+    __mode: any
+    __elements: List[Element]
+    __data_elements: List[str]
+    __wait_time: float
 
     def __init__(self) -> None:
-        self.driver = self.settings.driver
-        self.url = self.settings.url
-        self.elements = self.settings.elements
-        self.data_elements = []
-        self.wait_time = self.settings.wait_time
-        self.set_mode()
-        self.set_window_size()
+        self.__driver = self.__settings.driver
+        self.__url = self.__settings.url
+        self.__mode = By.ID
+        self.__elements = self.__settings.elements
+        self.__data_elements = []
+        self.__wait_time = self.__settings.wait_time
+        self.__set_mode()
+        self.__set_window_size()
+   
 
-    def set_mode(self) -> None:
-        if self.settings.not_mode == False:
-            self.mode = self.settings.mode
+    def __set_mode(self) -> None:
+        if self.__settings.not_mode == False:
+            self.__mode = self.__settings.mode
 
-    def set_window_size(self) -> None:
-        if self.settings.maximize:
-            self.driver.maximize_window()
+    def __set_window_size(self) -> None:
+        if self.__settings.maximize:
+            self.__driver.maximize_window()
 
     def open(self) -> None:
-        self.driver.get(self.url)
+        self.__driver.get(self.__url)
 
     def find_elements(self) -> None:
-        if self.settings.not_mode == True:
-            self.find_elements_without_mode()
+        self.__reset_data_elements()
+        if self.__settings.not_mode == True:
+            self.__find_elements_without_mode()
         else:
-            self.find_elements_with_mode()
+            self.__find_elements_with_mode()
         
 
-    def find_elements_without_mode(self):
-        for element in self.elements:
-            temp_element = self.driver.find_element(*self.set_find_by(element))
-            self.set_action(element, temp_element)
+    def __find_elements_without_mode(self):
+        for element in self.__elements:
+            temp_element = self.__driver.find_element(*self.__set_find_by(element))
+            self.__set_action(element, temp_element)
 
-    def set_find_by(self, element: Element) -> tuple:
+    def __set_find_by(self, element: Element) -> tuple:
         if element.find.id:
             return By.ID, element.find.id
         elif element.find.name:
@@ -51,20 +60,26 @@ class Browser:
         elif element.find.xpath:
             return By.XPATH, element.find.xpath
 
-    def set_action(self, element: Element, temp_element: any) -> None:
+    def __set_action(self, element: Element, temp_element: any) -> None:
         if element.action.type == Actions.CLICK.value:
             temp_element.click()
-            sleep(self.wait_time)
+            sleep(self.__wait_time)
         elif element.action.type == Actions.WRITE.value:
             temp_element.send_keys(element.action.value)
         elif element.action.type == Actions.READ.value:
-            self.data_elements.append(temp_element.text)
+            self.__data_elements.append(temp_element.text)
 
-    def find_elements_with_mode(self):
-        pass
+
+    def __find_elements_with_mode(self):
+        for element in self.__elements:
+            temp_element = self.__driver.find_element(self.__mode, self.__set_find_by(element)[1])
+            self.__set_action(element, temp_element)
 
     def get_data_elements(self) -> List[str]:
-        return self.data_elements
+        return self.__data_elements
+
+    def __reset_data_elements(self) -> None:
+        self.__data_elements = []
 
     def close(self) -> None:
-        self.driver.close()
+        self.__driver.close()

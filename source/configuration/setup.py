@@ -10,9 +10,9 @@ from constants.modes import Modes
 
 
 class Settings:
-    json_file_path = "resources/settings.json"
-    executable_path = 'C:/bin/chromedriver.exe'
-    preferences: Preferences
+    __JSON_FILE_PATH = "source/assets/settings.json"
+    __EXECUTABLE_PATH = 'C:/bin/chromedriver.exe'
+    __preferences: Preferences
     driver: webdriver
     mode: By
     not_mode: bool = False
@@ -22,28 +22,28 @@ class Settings:
     elements: List[Element]
 
     def __init__(self) -> None:
-        self.load_preferences()
-        self.set_preferences()
+        self.__load_preferences()
+        self.__set_preferences()
 
-    def load_preferences(self) -> None:
-        file = open(self.json_file_path, "r")
-        self.preferences = json.loads(
+    def __load_preferences(self) -> None:
+        file = open(self.__JSON_FILE_PATH, "r")
+        self.__preferences = json.loads(
             file.read(), object_hook=lambda d: SimpleNamespace(**d))
         file.close()
 
-    def set_preferences(self) -> None:
-        self.set_driver(self.preferences.options.driver)
-        self.set_mode(self.preferences.options.mode)
-        self.url = self.preferences.options.url
-        self.elements = self.preferences.elements
-        self.wait_time = float(self.preferences.options.wait)
-        if self.preferences.options.maximize == "true":
+    def __set_preferences(self) -> None:
+        self.__set_driver(self.__preferences.options.driver)
+        self.__set_mode(self.__preferences.options.mode)
+        self.url = self.__preferences.options.url
+        self.elements = self.__preferences.elements
+        self.wait_time = float(self.__preferences.options.wait)
+        if self.__preferences.options.maximize == "true":
             self.maximize = True
 
-    def set_driver(self, driver: str) -> None:
+    def __set_driver(self, driver: str) -> None:
         if driver == Drivers.CHROME.value:
             self.driver = webdriver.Chrome(
-                executable_path=self.executable_path)
+                executable_path=self.__EXECUTABLE_PATH)
         elif driver == Drivers.CHROMIUM.value:
             self.driver = webdriver.ChromiumEdge()
         elif driver == Drivers.EDGE.value:
@@ -56,9 +56,9 @@ class Settings:
             self.driver = webdriver.Safari()
         else:
             self.driver = webdriver.Chrome(
-                executable_path=self.executable_path)
+                executable_path=self.__EXECUTABLE_PATH)
 
-    def set_mode(self, mode: str) -> None:
+    def __set_mode(self, mode: str) -> None:
         if mode == Modes.ID.value:
             self.mode = By.ID
         elif mode == Modes.NAME.value:
