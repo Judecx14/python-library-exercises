@@ -1,7 +1,8 @@
+import numpy as np
+import csv
 from re import S
 from time import sleep
 from typing import List
-import numpy as np
 from classes.browser import Browser
 from matplotlib import pyplot as plt
 
@@ -24,7 +25,7 @@ class Chart():
             sleep(wait)
         self.__browser.close()
 
-    def create_chart(self, width = 0.25, ylabel = "Scores", title = "Scores by reading") -> None:
+    def create_chart(self, width = 0.25, ylabel = "Scores", title = "Data by reading") -> None:
         fig, ax = self.__plt.subplots()
         x_axis = np.arange(len(self.__data))
         ax.set_xticks(x_axis, ["Reading " + str(i+1) for i in range(len(self.__data))])
@@ -37,7 +38,7 @@ class Chart():
                 x_axis + (width*index),
                 [float(i.replace(",", "")) for i in data], 
                 width,
-                label="data_" + str(index+1)
+                label="fact_" + str(index+1)
             )
             ax.bar_label(temp_rect, padding = 3)
         ax.set_ylabel(ylabel)
@@ -47,4 +48,10 @@ class Chart():
         self.__plt.show()
 
     def create_file_csv(self) -> None:
-        pass
+        with open("source/assets/data/chart_data.csv", "w", newline = "", encoding = "utf-8") as f:
+            writer = csv.writer(f)
+            for i, data in enumerate(self.__data):
+                writer.writerow(["Reading " + str(i+1)])
+                writer.writerow(["fact_" + str(i+1) for i in range(len(data))])
+                writer.writerow(data)
+                writer.writerow([])

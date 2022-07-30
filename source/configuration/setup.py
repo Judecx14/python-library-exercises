@@ -27,9 +27,17 @@ class Settings:
 
     def __load_preferences(self) -> None:
         file = open(self.__JSON_FILE_PATH, "r")
-        self.__preferences = json.loads(
+        temp_preferences = json.loads(
             file.read(), object_hook=lambda d: SimpleNamespace(**d))
         file.close()
+        if not temp_preferences.import_settings:
+            self.__preferences = temp_preferences
+        else: 
+            path = temp_preferences.import_settings
+            file = open(path, "r")
+            self.__preferences = json.loads(
+                file.read(), object_hook=lambda d: SimpleNamespace(**d))
+            file.close()
 
     def __set_preferences(self) -> None:
         self.__set_driver(self.__preferences.options.driver)

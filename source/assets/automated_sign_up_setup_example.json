@@ -1,10 +1,9 @@
 {
-    "import_settings": "source/assets/automated_chart_setup_example.json",
     "options": {
         "driver":"chrome",
-        "mode": "all",
+        "mode": "xpath",
         "maximize":"true",
-        "url":"https://www.google.com/",
+        "url":"https://www.worldometers.info",
         "wait": "5.0"
     },
     "elements": [
@@ -13,10 +12,10 @@
                 "id": "",
                 "name": "",
                 "classname": "",
-                "xpath": ""
+                "xpath": "/html/body/div[3]/div[2]/div[2]/div[1]/div[2]/div[45]/div[1]/span[1]"
             },
             "action": {
-                "type": "",
+                "type": "read",
                 "value": ""
             }
         }
