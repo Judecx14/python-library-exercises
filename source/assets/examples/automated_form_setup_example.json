@@ -1,0 +1,143 @@
+{
+    "options": {
+        "driver":"chrome",
+        "mode": "all",
+        "maximize":"true",
+        "url":"https://vue-generic-form.vercel.app/",
+        "wait": "2.5"
+    },
+    "elements": [
+        {
+            "find": {
+                "id": "name",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "write",
+                "value": "Cesar"
+            }
+        },
+        {
+            "find": {
+                "id": "age",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "write",
+                "value": "20"
+            }
+        },
+        {
+            "find": {
+                "id": "country",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/section/article/form/div/div[1]/select/option[3]"
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "employee",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "front-end",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "back-end",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "mobile",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "framework",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "flutter",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/section/article/form/button"
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        }
+    ]
+}

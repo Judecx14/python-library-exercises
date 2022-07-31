@@ -1,6 +1,5 @@
 import numpy as np
 import csv
-from re import S
 from time import sleep
 from typing import List
 from classes.browser import Browser

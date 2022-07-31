@@ -1,11 +1,13 @@
 import json
 from app.automated_charts import Chart
+from app.automated_form import Form
 
 
 class Executables():
 
     __run: bool
     __charts: Chart
+    __form: Form
 
     def __init__(self) -> None:
         self.__run = True
@@ -16,14 +18,16 @@ class Executables():
         self.__menu(quantity_of_options = 5, type = "charts")
         
 
-    def menu_automated_sign_up(self) -> None: 
-        self.__menu(quantity_of_options = 2, type = "sign_up")
+    def menu_automated_form(self) -> None: 
+        self.__import_settings(type = "form")
+        self.__form = Form()
+        self.__menu(quantity_of_options = 2, type = "form")
     
     def __menu(self, quantity_of_options: int, type: str):
         self.__run = True
         while (self.__run):
             if type == "charts": self.__automated_charts_options()
-            elif type == "sign_up": self.__automated_sign_up_options()
+            elif type == "form": self.__automated_form_options()
             option_selected = self.__read_option(default_option = quantity_of_options)
             self.__run = False if option_selected == quantity_of_options else True
             self.__execute_option(option_selected, type)
@@ -76,9 +80,12 @@ class Executables():
                 xxxxx That option dosen't exist xxxxx
                 """)
                 self.__run = False
-        elif type == "sign_up":
+        elif type == "form":
             if option_selected == 1:
-                print("HACIENDO SIGN UP")
+                print("""
+                Filling form ...""")
+                self.__form.open()
+                self.__form.fill_fields()
             elif option_selected == 2:
                 print("""
                         ooooo Exit ooooo
@@ -106,8 +113,8 @@ class Executables():
                 data = json.load(jsonFile)
             if type == "charts":
                 data["import_settings"] = "source/assets/examples/automated_chart_setup_example.json"
-            elif type == "sign_up":
-                data["import_settings"] = "source/assets/examples/automated_sign_up_setup_example.json"
+            elif type == "form":
+                data["import_settings"] = "source/assets/examples/automated_form_setup_example.json"
             with open("source/assets/settings.json", "w") as jsonFile:
                 json.dump(data, jsonFile)
         elif answer == "n":
@@ -130,12 +137,12 @@ class Executables():
         4.- Create csv file
         5.- Back to de main menu""")
 
-    def __automated_sign_up_options(self) -> None:
+    def __automated_form_options(self) -> None:
         print("""
-            ooooo Automated sign up exercise ooooo
+            ooooo Automated form exercise ooooo
             """)
         print("""
                 ------ Options ------""")
         print("""
-        1.- Make a sign up
+        1.- Fill form
         2.- Back to de main menu""")

@@ -31,7 +31,7 @@ class Menu():
                 ------ Options ------""")
         print("""
         1.- Run automated charts exercise
-        2.- Run automated sign up exercise
+        2.- Run automated form exercise
         3.- Exit""")
 
     def __read_option(self) -> int:
@@ -49,7 +49,7 @@ class Menu():
         if option_selected == 1:
             self.__executables.menu_automated_charts()
         elif option_selected == 2:
-            self.__executables.menu_automated_sign_up()
+            self.__executables.menu_automated_form()
         elif option_selected == 3:
             print("""
                     ooooo Exit ooooo
