@@ -55,3 +55,6 @@ class Chart():
                 writer.writerow(["fact_" + str(i+1) for i in range(len(data))])
                 writer.writerow(data)
                 writer.writerow([])
+
+    def raw_data(self) -> List[str]:
+        return self.__data

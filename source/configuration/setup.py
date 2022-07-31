@@ -40,13 +40,15 @@ class Settings:
             file.close()
 
     def __set_preferences(self) -> None:
-        self.__set_driver(self.__preferences.options.driver)
         self.__set_mode(self.__preferences.options.mode)
         self.url = self.__preferences.options.url
         self.elements = self.__preferences.elements
         self.wait_time = float(self.__preferences.options.wait)
         if self.__preferences.options.maximize == "true":
             self.maximize = True
+
+    def set_driver(self) -> None:
+        self.__set_driver(self.__preferences.options.driver)
 
     def __set_driver(self, driver: str) -> None:
         if driver == Drivers.CHROME.value:

@@ -1,9 +1,10 @@
-from app.automated_charts import Chart
+from app.menu import Menu
 
 
 def main():
-    chart = Chart()
-    chart.get_data()
-    
+    m = Menu()
+    m.start()
+
+
 if __name__ == "__main__":
     main()

@@ -7,7 +7,7 @@ from constants.actions import Actions
 
 
 class Browser:
-    __settings = Settings()
+    __settings = Settings
     __driver: any 
     __url: str
     __mode: any
@@ -16,14 +16,14 @@ class Browser:
     __wait_time: float
 
     def __init__(self) -> None:
-        self.__driver = self.__settings.driver
+        self.__settings = Settings()
+        self.__driver = any
         self.__url = self.__settings.url
         self.__mode = By.ID
         self.__elements = self.__settings.elements
         self.__data_elements = []
         self.__wait_time = self.__settings.wait_time
         self.__set_mode()
-        self.__set_window_size()
    
 
     def __set_mode(self) -> None:
@@ -35,6 +35,9 @@ class Browser:
             self.__driver.maximize_window()
 
     def open(self) -> None:
+        self.__settings.set_driver()
+        self.__driver = self.__settings.driver
+        self.__set_window_size()
         self.__driver.get(self.__url)
 
     def find_elements(self) -> None:
