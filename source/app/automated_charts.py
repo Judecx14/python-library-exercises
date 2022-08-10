@@ -49,11 +49,9 @@ class Chart():
     def create_file_csv(self) -> None:
         with open("source/assets/data/chart_data.csv", "w", newline = "", encoding = "utf-8") as f:
             writer = csv.writer(f)
+            writer.writerow(["fact_" + str(i+1) for i in range(len(self.__data[0]))])
             for i, data in enumerate(self.__data):
-                writer.writerow(["Reading " + str(i+1)])
-                writer.writerow(["fact_" + str(i+1) for i in range(len(data))])
                 writer.writerow(data)
-                writer.writerow([])
 
     def raw_data(self) -> List[str]:
         return self.__data

@@ -1,0 +1,47 @@
+{
+    "options": {
+        "driver":"chrome",
+        "mode": "all",
+        "maximize":"true",
+        "url":"https://www.facebook.com/",
+        "wait": "3.0"
+    },
+    "elements": [
+        {
+            "find": {
+                "id": "email",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "write",
+                "value": "cesarjaviersanchhdz@gmail.com"
+            }
+        },
+        {
+            "find": {
+                "id": "pass",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "write",
+                "value": "@Cx14777"
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "login",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 {
-    "import_settings": "",
+    "import_settings": "source/assets/examples/chart_additional_example.json",
     "options": {
         "driver":"chrome",
         "mode": "all",

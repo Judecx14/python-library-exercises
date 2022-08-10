@@ -1,0 +1,59 @@
+{
+    "options": {
+        "driver":"chrome",
+        "mode": "xpath",
+        "maximize":"true",
+        "url":"https://everysecond.io/apple",
+        "wait": "5.0"
+    },
+    "elements": [
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/div[2]/div[3]/div[1]/div/span"
+            },
+            "action": {
+                "type": "read",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/div[2]/div[3]/div[2]/div/span"
+            },
+            "action": {
+                "type": "read",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/div[2]/div[3]/div[3]/div/span"
+            },
+            "action": {
+                "type": "read",
+                "value": ""
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/div[2]/div[3]/div[4]/div/span"
+            },
+            "action": {
+                "type": "read",
+                "value": ""
+            }
+        }
+    ]
+}

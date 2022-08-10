@@ -1,3 +1,4 @@
+from time import sleep
 from classes.browser import Browser
 
 class Form():
@@ -12,4 +13,5 @@ class Form():
     
     def fill_fields(self) -> None: 
         self.__browser.find_elements()
+        sleep(self.__browser.wait_time)
         self.__browser.close()

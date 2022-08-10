@@ -1,0 +1,47 @@
+{
+    "options": {
+        "driver":"chrome",
+        "mode": "all",
+        "maximize":"true",
+        "url":"https://uttorreon.mx/",
+        "wait": "4.0"
+    },
+    "elements": [
+        {
+            "find": {
+                "id": "email",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "write",
+                "value": "19030119"
+            }
+        },
+        {
+            "find": {
+                "id": "password",
+                "name": "",
+                "classname": "",
+                "xpath": ""
+            },
+            "action": {
+                "type": "write",
+                "value": "1414777xd@C"
+            }
+        },
+        {
+            "find": {
+                "id": "",
+                "name": "",
+                "classname": "",
+                "xpath": "/html/body/div/div[1]/div[1]/form/div[4]/div/div/button"
+            },
+            "action": {
+                "type": "click",
+                "value": ""
+            }
+        }
+    ]
+}

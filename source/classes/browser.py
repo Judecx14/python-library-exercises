@@ -13,7 +13,7 @@ class Browser:
     __mode: any
     __elements: List[Element]
     __data_elements: List[str]
-    __wait_time: float
+    wait_time: float
 
     def __init__(self) -> None:
         self.__settings = Settings()
@@ -22,7 +22,7 @@ class Browser:
         self.__mode = By.ID
         self.__elements = self.__settings.elements
         self.__data_elements = []
-        self.__wait_time = self.__settings.wait_time
+        self.wait_time = self.__settings.wait_time
         self.__set_mode()
    
 
@@ -66,7 +66,7 @@ class Browser:
     def __set_action(self, element: Element, temp_element: any) -> None:
         if element.action.type == Actions.CLICK.value:
             temp_element.click()
-            sleep(self.__wait_time)
+            sleep(self.wait_time)
         elif element.action.type == Actions.WRITE.value:
             temp_element.send_keys(element.action.value)
         elif element.action.type == Actions.READ.value:
