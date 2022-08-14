@@ -1,5 +1,5 @@
 {
-    "import_settings": "source/assets/examples/chart_additional_example.json",
+    "import_settings": "source/assets/examples/facebook_form_example.json",
     "options": {
         "driver":"chrome",
         "mode": "all",

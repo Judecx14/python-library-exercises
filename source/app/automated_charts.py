@@ -50,7 +50,7 @@ class Chart():
         with open("source/assets/data/chart_data.csv", "w", newline = "", encoding = "utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["fact_" + str(i+1) for i in range(len(self.__data[0]))])
-            for i, data in enumerate(self.__data):
+            for data in self.__data:
                 writer.writerow(data)
 
     def raw_data(self) -> List[str]:
